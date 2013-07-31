@@ -6,7 +6,7 @@ module Sounder
     end
 
     def play
-      system %{/usr/bin/afplay "#{@file}"}
+      system %{/usr/bin/afplay "#{@file}" &}
     end
   end
 end
