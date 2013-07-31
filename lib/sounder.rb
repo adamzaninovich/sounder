@@ -1,5 +1,9 @@
 require "sounder/version"
+require "sounder/system"
+require "sounder/sound"
 
 module Sounder
-  # Your code goes here...
+  def self.play path
+    Sound.new(path).play
+  end
 end
