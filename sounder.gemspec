@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Sounder::VERSION
   spec.authors       = ["Adam Zaninovich"]
   spec.email         = ["adam.zaninovich@gmail.com"]
-  spec.description   = %q{plays sounds}
-  spec.summary       = %q{plays sounds}
-  spec.homepage      = ""
+  spec.description   = %q{Play sounds on your Mac}
+  spec.summary       = %q{Play sounds on your Mac}
+  spec.homepage      = "https://github.com/adamzaninovich/sounder"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
