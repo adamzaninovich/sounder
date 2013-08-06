@@ -54,9 +54,9 @@ describe Sounder do
     describe '#usage' do
       it "returns usage info in a string" do
         group = Sounder::SoundGroup.new sounds
-        group.usage.should include "random"
-        group.usage.should include "sound_a"
-        group.usage.should include "sound_b"
+        group.usage.should include "random (picks a random sound)"
+        group.usage.should include "  sound_a"
+        group.usage.should include "  sound_b"
       end
     end
   end

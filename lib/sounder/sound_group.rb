@@ -21,13 +21,12 @@ module Sounder
     end
 
     def usage
-      usage = [ "random (picks a random sound)",
+      [ "random (picks a random sound)",
         "<sound name> (it will fuzzy match the name)",
         "Available sounds:"
       ] + @sounds.keys.map do |sound|
         "  #{sound}"
       end
-      usage.join "\n"
     end
 
 
