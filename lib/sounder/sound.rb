@@ -1,8 +1,10 @@
+require 'shellwords'
+
 module Sounder
   class Sound
     attr_reader :file
     def initialize path
-      @file = path
+      @file = Shellwords.escape path
     end
 
     def play

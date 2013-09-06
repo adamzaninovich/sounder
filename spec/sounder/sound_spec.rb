@@ -15,6 +15,11 @@ describe Sounder do
         sound.should_receive(:system).with %{/usr/bin/afplay "fake/file.m4a" &}
         sound.play
       end
+      it "is not super insecure" do
+        bad_sound = Sounder::Sound.new '";echo doing bad things;"'
+        bad_sound.should_receive(:system).with %{/usr/bin/afplay \"\\\"\\;echo\\ doing\\ bad\\ things\\;\\\"\" &}
+        bad_sound.play
+      end
     end
   end
 
