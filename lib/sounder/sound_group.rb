@@ -29,10 +29,10 @@ module Sounder
       end
     end
 
-
     private
+
     def fuzzy_find name
-      @sounds.keys.select { |sn| sn.include? name }.first
+      @sounds.keys.select { |sn| sn.downcase.include? name.downcase }.first
     end
 
   end

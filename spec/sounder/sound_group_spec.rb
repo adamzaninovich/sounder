@@ -5,8 +5,8 @@ describe Sounder do
   describe Sounder::SoundGroup do
     let!(:sounds) do
       {
-        sound_a: 'sounda.m4a',
-        'sound_b' => 'soundb.m4a'
+        sound_a: 'sound_a',
+        'sound B' => 'sound_b',
       }
     end
 
@@ -25,14 +25,14 @@ describe Sounder do
     describe '#play' do
       it "plays a sound corresponding to the argument passed in" do
         group = Sounder::SoundGroup.new sounds
-        sound_b = group.sounds.fetch "sound_b"
+        sound_b = group.sounds.fetch "sound B"
         expect(sound_b).to receive(:play)
-        group.play "sound_b"
+        group.play "sound B"
       end
 
       it "fuzzy matches the sound name" do
         group = Sounder::SoundGroup.new sounds
-        sound_b = group.sounds.fetch "sound_b"
+        sound_b = group.sounds.fetch "sound B"
         expect(sound_b).to receive(:play)
         group.play "b"
       end
@@ -56,7 +56,7 @@ describe Sounder do
         group = Sounder::SoundGroup.new sounds
         expect(group.usage).to include "random (picks a random sound)"
         expect(group.usage).to include "  sound_a"
-        expect(group.usage).to include "  sound_b"
+        expect(group.usage).to include "  sound B"
       end
     end
   end
