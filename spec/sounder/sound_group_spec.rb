@@ -16,7 +16,7 @@ describe Sounder do
       end
       it "creates sound objects" do
         sounds.each do |name, file|
-          Sounder::Sound.should_receive(:new).with file
+          expect(Sounder::Sound).to receive(:new).with file
         end
         Sounder::SoundGroup.new sounds
       end
@@ -26,14 +26,14 @@ describe Sounder do
       it "plays a sound corresponding to the argument passed in" do
         group = Sounder::SoundGroup.new sounds
         sound_b = group.sounds.fetch "sound_b"
-        sound_b.should_receive(:play)
+        expect(sound_b).to receive(:play)
         group.play "sound_b"
       end
 
       it "fuzzy matches the sound name" do
         group = Sounder::SoundGroup.new sounds
         sound_b = group.sounds.fetch "sound_b"
-        sound_b.should_receive(:play)
+        expect(sound_b).to receive(:play)
         group.play "b"
       end
 
@@ -46,7 +46,7 @@ describe Sounder do
     describe '#random' do
       it "plays a random sound" do
         group = Sounder::SoundGroup.new sounds
-        Sounder::Sound.any_instance.should_receive :play
+        expect_any_instance_of(Sounder::Sound).to receive :play
         group.random
       end
     end
@@ -54,9 +54,9 @@ describe Sounder do
     describe '#usage' do
       it "returns usage info in a string" do
         group = Sounder::SoundGroup.new sounds
-        group.usage.should include "random (picks a random sound)"
-        group.usage.should include "  sound_a"
-        group.usage.should include "  sound_b"
+        expect(group.usage).to include "random (picks a random sound)"
+        expect(group.usage).to include "  sound_a"
+        expect(group.usage).to include "  sound_b"
       end
     end
   end
