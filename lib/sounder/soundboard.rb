@@ -32,10 +32,10 @@ module Sounder
     def play_sound sound_name
       soundgroup.play sound_name
     rescue UnknownSoundError
-      unknown_sound_message
+      unknown_sound_message sound_name
     end
 
-    def unknown_sound_message
+    def unknown_sound_message sound_name
       puts "Error: \"#{sound_name}\" does not match a known sound"
       puts usage
     end
